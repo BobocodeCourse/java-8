@@ -42,26 +42,33 @@ public class FunctionFactoryTask {
     public static void main(String[] args) {
         FunctionFactory<Integer, Integer> functionFactory = new FunctionFactory<>();
         // 1. add simple functions "square", "increment", "decrement", "negative"
+
+        functionFactory.addFunction("square", a -> a * a );
+        functionFactory.addFunction("increment", a -> a += 1);
+        functionFactory.addFunction("decrement", a -> a -= 1);
+        functionFactory.addFunction("negative", a -> -a);
+
         // 2. get each function by name, and apply to argument 5, print a result (should be 25, 6, 4,-5 accordingly)
+
+        System.out.println(functionFactory.getFunction("square").apply(5));
+        System.out.println(functionFactory.getFunction("increment").apply(5));
+        System.out.println(functionFactory.getFunction("decrement").apply(5));
+        System.out.println(functionFactory.getFunction("negative").apply(5));
+
         // 3. add simple function "abs" using method reference (use class Math)
+
+        functionFactory.addFunction("abs", Math::abs);
+        System.out.println(functionFactory.getFunction("abs").apply(5));
+
         // 4. add try/catch block, catch InvalidFunctionNameException and print some error message to the console
         // 5. try to get function with invalid name
 
-        functionFactory.addFunction("square", n -> n * n);
-        functionFactory.addFunction("abs", Math::abs);
-
-        functionFactory.getFunction("square").apply(5);
-        try{
-            functionFactory.getFunction("abs").apply(5);
-        }catch (InvalidFunctionNameException e){
+        try {
+            System.out.println(functionFactory.getFunction("myFunction").apply(5));
+        } catch (InvalidFunctionNameException e) {
             System.out.println(e.getMessage());
         }
-
-
-
-
     }
-
 }
 
 
