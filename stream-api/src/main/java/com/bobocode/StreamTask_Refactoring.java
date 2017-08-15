@@ -1,13 +1,10 @@
 package com.bobocode;
 
-import com.bobocode.functions.Condition;
-import com.bobocode.functions.Operation;
 import com.bobocode.model.Account;
 import com.bobocode.util.TestDataProvider;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
-import java.time.Period;
 import java.util.List;
 
 /**
@@ -17,17 +14,13 @@ import java.util.List;
 public class StreamTask_Refactoring {
     public static void main(String[] args) {
         List<Account> accounts = TestDataProvider.generateAccountList();
-        processAccounts(accounts,
-                a -> Period.between(a.getCreationDate().toLocalDate(), LocalDate.now()).getYears() > 4,
-                a -> a.setBalance(a.getBalance().add(BigDecimal.valueOf(50))));
-    }
 
-    private static void processAccounts(List<Account> accounts, Condition<Account> condition,
-                                        Operation<Account> operation) {
+        accounts.stream()
+                .filter(a -> (LocalDate.now().getYear() - a.getCreationDate().getYear())>4)
+                .forEach(a -> a.setBalance(a.getBalance().add(BigDecimal.valueOf(50))));
+
         for (Account account : accounts) {
-            if (condition.isTrue(account)) {
-                operation.apply(account);
-            }
+            System.out.println(account.getBalance());
         }
     }
 }
