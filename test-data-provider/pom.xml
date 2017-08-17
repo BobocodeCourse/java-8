@@ -9,13 +9,18 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>util</artifactId>
+    <artifactId>test-data-provider</artifactId>
 
     <dependencies>
         <dependency>
             <groupId>com.bobocode</groupId>
             <artifactId>account-model</artifactId>
             <version>1.0-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>io.codearte.jfairy</groupId>
+            <artifactId>jfairy</artifactId>
+            <version>0.5.7</version>
         </dependency>
     </dependencies>
 

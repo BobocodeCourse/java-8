@@ -34,7 +34,7 @@ public class LambdaExample_01 {
     private static void giveBonusForLoyalClients(List<Account> accounts, int yearsWithBank, BigDecimal bonus) {
         for (Account account : accounts) {
             // todo: HARD CODED condition should be passed as method argument
-            if (Period.between(account.getCreationDate(), LocalDate.now()).getYears() >= yearsWithBank) {
+            if (Period.between(account.getCreationDate().toLocalDate(), LocalDate.now()).getYears() >= yearsWithBank) {
                 // todo: HARD CODED operation should be passed as method argument
                 account.setBalance(account.getBalance().add(bonus));
             }

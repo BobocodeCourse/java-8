@@ -18,7 +18,7 @@ public class StreamTask_Refactoring {
     public static void main(String[] args) {
         List<Account> accounts = TestDataProvider.generateAccountList();
         processAccounts(accounts,
-                a -> Period.between(a.getCreationDate(), LocalDate.now()).getYears() > 4,
+                a -> Period.between(a.getCreationDate().toLocalDate(), LocalDate.now()).getYears() > 4,
                 a -> a.setBalance(a.getBalance().add(BigDecimal.valueOf(50))));
     }
 

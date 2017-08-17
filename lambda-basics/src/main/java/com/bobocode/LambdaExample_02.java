@@ -30,7 +30,7 @@ public class LambdaExample_02 {
         Condition<Account> loyalClientCondition = new Condition<Account>() {
             @Override
             public boolean isTrue(Account account) {
-                return between(account.getCreationDate(), LocalDate.now()).getYears() > 4;
+                return between(account.getCreationDate().toLocalDate(), LocalDate.now()).getYears() > 4;
             }
         };
         Operation<Account> bonusOperation = new Operation<Account>() {

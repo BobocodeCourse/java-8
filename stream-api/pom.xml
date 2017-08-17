@@ -20,7 +20,7 @@
         </dependency>
         <dependency>
             <groupId>com.bobocode</groupId>
-            <artifactId>util</artifactId>
+            <artifactId>test-data-provider</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
     </dependencies>

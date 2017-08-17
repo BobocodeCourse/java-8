@@ -16,7 +16,7 @@
         <module>stream-api</module>
         <module>optional-basics</module>
         <module>account-model</module>
-        <module>util</module>
+        <module>test-data-provider</module>
     </modules>
 
     <properties>

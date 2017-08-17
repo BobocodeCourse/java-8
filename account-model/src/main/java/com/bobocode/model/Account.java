@@ -4,6 +4,7 @@ import lombok.*;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 //@NoArgsConstructor
 //@AllArgsConstructor(access = AccessLevel.PUBLIC)
@@ -16,7 +17,7 @@ public class Account {
     private String lastName;
     private String email;
     private LocalDate birthday;
-    private LocalDate creationDate;
+    private LocalDateTime creationDate;
     private BigDecimal balance = BigDecimal.ZERO;
 
     public Account(Long id, String firstName, String lastName, String email, LocalDate birthday, LocalDate creationDate, BigDecimal balance) {
