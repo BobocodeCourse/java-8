@@ -42,24 +42,32 @@ public class FunctionFactoryTask {
     public static void main(String[] args) {
         FunctionFactory<Integer, Integer> functionFactory = new FunctionFactory<>();
         // 1. add simple functions "square", "increment", "decrement", "negative"
-        // 2. get each function by name, and apply to argument 5, print a result (should be 25, 6, 4,-5 accordingly)
-        // 3. add simple function "abs" using method reference (use class Math)
-        // 4. add try/catch block, catch InvalidFunctionNameException and print some error message to the console
-        // 5. try to get function with invalid name
+        Function<Integer, Integer> fSquare = f -> f * f;
+        functionFactory.addFunction("square", fSquare);
+        functionFactory.addFunction("increment", f -> f + 1);
+        functionFactory.addFunction("increment2", f-> { f++; int i = f; return  i;});
+        functionFactory.addFunction("decrement", f -> f - 1);
+        functionFactory.addFunction("negative", f -> f > 0 ? -f : f);
 
-        functionFactory.addFunction("square", n -> n * n);
+        // 2. get each function by name, and apply to argument 5, print a result (should be 25, 6, 4,-5 accordingly)
+        functionFactory.functionMap.forEach((key, value) -> System.out.println(key + ": " + value.apply(5)));
+
+        // 3. add simple function "abs" using method reference (use class Math)
         functionFactory.addFunction("abs", Math::abs);
 
-        functionFactory.getFunction("square").apply(5);
-        try{
-            functionFactory.getFunction("abs").apply(5);
-        }catch (InvalidFunctionNameException e){
+        // 4. add try/catch block, catch InvalidFunctionNameException and print some error message to the console
+        try {
+            functionFactory.getFunction("square");
+        } catch (InvalidFunctionNameException e) {
             System.out.println(e.getMessage());
         }
 
-
-
-
+        // 5. try to get function with invalid name
+        try {
+            functionFactory.getFunction("123");
+        } catch (InvalidFunctionNameException e) {
+            System.out.println(e.getMessage());
+        }
     }
 
 }
