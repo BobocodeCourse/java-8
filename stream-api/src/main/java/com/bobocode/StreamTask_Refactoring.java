@@ -21,7 +21,8 @@ public class StreamTask_Refactoring {
     public static void main(String[] args) {
         List<Account> accounts = TestDataProvider.generateAccountList(10);
         accounts.forEach(System.out::println);
-        System.out.println();
+
+        System.out.println("\nGive bonus 50 for people work more then 4 years");
 
         Predicate<Account> predicate = a -> Period.between(a.getCreationDate().toLocalDate(), LocalDate.now()).getYears() > 4;
         Consumer<Account> operation = a -> a.setBalance(a.getBalance().add(BigDecimal.valueOf(50)));
