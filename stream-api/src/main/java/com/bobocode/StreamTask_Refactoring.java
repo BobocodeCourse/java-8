@@ -19,7 +19,7 @@ import java.util.function.Predicate;
  */
 public class StreamTask_Refactoring {
     public static void main(String[] args) {
-        List<Account> accounts = TestDataProvider.generateAccountList();
+        List<Account> accounts = TestDataProvider.generateAccountList(10);
         accounts.forEach(System.out::println);
         System.out.println();
 

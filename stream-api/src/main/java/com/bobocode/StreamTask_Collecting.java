@@ -39,7 +39,7 @@ public class StreamTask_Collecting {
         Optional<Account> maxAccount = accounts.stream()
                 .max(comparing(Account::getBalance));
 
-        System.out.print("\nRichest guy: " );
+        System.out.print("\nRichest guy: ");
         maxAccount.map(Account::getFirstName).ifPresent(System.out::println);
         System.out.println(maxAccount);
 
