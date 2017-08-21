@@ -1,10 +1,9 @@
 package com.bobocode.util;
 
 import com.bobocode.model.Account;
+import com.bobocode.model.Company;
 import io.codearte.jfairy.Fairy;
-import io.codearte.jfairy.producer.payment.CreditCard;
 import io.codearte.jfairy.producer.person.Person;
-import org.apache.commons.lang3.RandomStringUtils;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
@@ -32,7 +31,7 @@ public class TestDataProvider {
         return accounts;
     }
 
-    public static Account generateFakeAccount(){
+    public static Account generateFakeAccount() {
         Fairy fairy = Fairy.create();
         Person person = fairy.person();
         Random random = new Random();
@@ -52,5 +51,16 @@ public class TestDataProvider {
         return fakeAccount;
     }
 
+    public static Company generateFakeCompany() {
+        Fairy fairy = Fairy.create();
+        io.codearte.jfairy.producer.company.Company company = fairy.company();
+        Random random = new Random();
+
+        Company fakeCompany = new Company();
+        fakeCompany.setName(company.getName());
+        fakeCompany.setPhone("+380" + String.valueOf(random.nextInt(90_000_000)));
+
+        return fakeCompany;
+    }
 
 }
