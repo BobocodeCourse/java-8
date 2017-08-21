@@ -20,7 +20,10 @@ public class Account {
     private LocalDateTime creationDate;
     private BigDecimal balance = BigDecimal.ZERO;
 
-    public Account(Long id, String firstName, String lastName, String email, LocalDate birthday, LocalDate creationDate, BigDecimal balance) {
+    public Account() {
+    }
+
+    public Account(Long id, String firstName, String lastName, String email, LocalDate birthday, LocalDateTime creationDate, BigDecimal balance) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -70,11 +73,11 @@ public class Account {
         this.birthday = birthday;
     }
 
-    public LocalDate getCreationDate() {
+    public LocalDateTime getCreationDate() {
         return creationDate;
     }
 
-    public void setCreationDate(LocalDate creationDate) {
+    public void setCreationDate(LocalDateTime creationDate) {
         this.creationDate = creationDate;
     }
 
