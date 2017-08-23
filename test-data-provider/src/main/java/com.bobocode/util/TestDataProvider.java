@@ -32,6 +32,14 @@ public class TestDataProvider {
         return accounts;
     }
 
+    public static List<Account> generateFakeAccountList (){
+        List<Account> listFakeAccount = new ArrayList<>();
+        for (int i = 0; i < 10; i++) {
+            listFakeAccount.add(generateFakeAccount());
+        }
+        return listFakeAccount;
+    }
+
     public static Account generateFakeAccount(){
         Fairy fairy = Fairy.create();
         Person person = fairy.person();

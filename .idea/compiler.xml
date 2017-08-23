@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="account-model" />
+        <module name="binary-search-tree" />
+        <module name="function-factory-task" />
+        <module name="lambda-basics" />
+        <module name="optional-basics" />
+        <module name="stream-api" />
+        <module name="test-data-provider" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="account-model" target="1.8" />
+      <module name="binary-search-tree" target="1.8" />
+      <module name="function-factory-task" target="1.8" />
+      <module name="java-8-parent" target="1.8" />
+      <module name="lambda-basics" target="1.8" />
+      <module name="optional-basics" target="1.8" />
+      <module name="stream-api" target="1.8" />
+      <module name="test-data-provider" target="1.8" />
+      <module name="util" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+</project>
