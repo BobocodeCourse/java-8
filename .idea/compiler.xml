@@ -12,7 +12,7 @@
         <module name="lambda-basics" />
         <module name="optional-basics" />
         <module name="stream-api" />
-        <module name="util" />
+        <module name="test-data-provider" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
@@ -23,6 +23,7 @@
       <module name="lambda-basics" target="1.8" />
       <module name="optional-basics" target="1.8" />
       <module name="stream-api" target="1.8" />
+      <module name="test-data-provider" target="1.8" />
       <module name="util" target="1.8" />
     </bytecodeTargetLevel>
   </component>
