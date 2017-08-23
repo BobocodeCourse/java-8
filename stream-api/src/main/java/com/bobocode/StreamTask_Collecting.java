@@ -5,10 +5,7 @@ import com.bobocode.model.Account;
 import com.bobocode.util.TestDataProvider;
 
 import java.math.BigDecimal;
-import java.util.Comparator;
-import java.util.List;
-import java.util.Map;
-import java.util.Optional;
+import java.util.*;
 import java.util.stream.Collectors;
 
 import static java.util.Comparator.*;
@@ -23,10 +20,11 @@ public class StreamTask_Collecting {
 
         // 1 - Find a set of account owner's names(first name) that have a length <= 4
         System.out.println("Find a set of account owner's names(first name) that have a length <= 4");
-        accounts.stream()
+        Set<String> collectSet = accounts.stream()
                 .map(Account::getFirstName)
                 .filter(name -> name.length() <= 4)
-                .forEach(System.out::println);
+                .collect(toSet());
+        System.out.println(collectSet);
         System.out.println("**************************************************************************");
 
         // 2 - Group all accounts by its email providers. (You can consider as an email provider
@@ -55,20 +53,18 @@ public class StreamTask_Collecting {
 
         // 4 - Find the richest guy for each email provider
         System.out.println("Find the richest guy for each email provider");
-//        accounts.stream()
-//                 .collect(groupingBy(account->account.getEmail().replaceAll(".+\\@","")),
-//                         maxBy(comparing(Account::getBalance)));
+        accounts.stream()
+                .collect(groupingBy(account -> account.getEmail().split("@")[1],
+                        maxBy(comparing(Account::getBalance))));
         System.out.println("**************************************************************************");
 
         // 5 - Split accounts by their balance (those who have more than $90 000.00, and those who don't)
         System.out.println("Split accounts by their balance (those who have more than $90 000.00, and those who don't)");
         BigDecimal bigDecimal = new BigDecimal(90000);
-        Map<Integer, List<BigDecimal>> splitBalanceByBigDecimal = accounts.stream()
-                .map(Account::getBalance)
-                .collect(groupingBy(balance -> balance.compareTo(bigDecimal)));
+        Map<Boolean, List<String>> splitBalanceByBigDecimal = accounts.stream()
+                .collect(groupingBy(account -> account.getBalance().intValue() > 90000, mapping(Account::getFirstName, toList())));
         System.out.println(splitBalanceByBigDecimal);
         System.out.println("**************************************************************************");
-        //тут хочу выводить именно акаунты, а не только балансы. не могу понять как
 
     }
 }
