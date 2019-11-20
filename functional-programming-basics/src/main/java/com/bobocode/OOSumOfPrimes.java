@@ -10,7 +10,7 @@ public class OOSumOfPrimes {
     public static void main(String[] args) {
         int sumOfPrimes = 0;
         for (int i = 0, primes = 0; primes < 20; i++) {
-            if (isPrime(i)) {
+            if (isPrime(i) && i >= 2) {
                 sumOfPrimes += i;
                 primes++;
             }
